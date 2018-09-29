@@ -7,7 +7,10 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent"}
+		// "DisableBatching"="True" is crutial. Otherwise the shader will
+		// break caused by Unity's dynamic batching.
+		//https://docs.unity3d.com/Manual/SL-SubShaderTags.html
+		Tags { "RenderType"="Transparent" "Queue"="Transparent" "DisableBatching"="True"}
 		LOD 100
 
 		ZWrite Off

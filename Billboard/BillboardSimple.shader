@@ -7,7 +7,10 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Transparent" "Queue"="Transparent"}
+		// "DisableBatching"="True" is crutial. Otherwise the shader will
+		// break caused by Unity's dynamic batching.
+		//https://docs.unity3d.com/Manual/SL-SubShaderTags.html
+		Tags { "RenderType"="Transparent" "Queue"="Transparent" "DisableBatching"="True"}
 		LOD 100
 
 		ZWrite Off
@@ -54,7 +57,7 @@
 					_ScaleOffset.x, 0.0f, 0.0f, m1._14+_ScaleOffset.z,
 					0.0f, _ScaleOffset.y, 0.0f, m1._24+_ScaleOffset.w,
 					0.0f, 0.0f, -1.0f, m1._34,
-					0.0f, 0.0f, 0.0f, m1._44);
+					m1._41, m1._42, m1._43, m1._44);
 
 				o.vertex = mul(UNITY_MATRIX_P, mul(m2, v.vertex));
 
