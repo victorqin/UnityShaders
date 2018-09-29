@@ -11,7 +11,7 @@
 		LOD 100
 
 		ZWrite Off
-		Cull Off
+		//Cull Off
 		Blend SrcAlpha OneMinusSrcAlpha
 
 		Pass
