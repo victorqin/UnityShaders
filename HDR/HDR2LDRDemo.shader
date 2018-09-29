@@ -39,6 +39,7 @@
 			float _MaxBrightness;
 
 			// https://en.wikipedia.org/wiki/HSL_and_HSV#From_HSV
+			// range of hsv is [0, 1]
 			float3 hsv2rgb(float3 hsv)	{
 				float c = hsv.y * hsv.z;
 				float h = hsv.x * 6;
